@@ -17,33 +17,37 @@ public class Board {
 		}
 		return this;
 	}
+	public int mdivision(int x) {
+		
+		return ((x % this.size) + this.size) % this.size;
+	}
 
 	public Board Nextgen(Board board) {
-		for (int i = 1; i < this.size - 1; i++) {
-			for (int j = 1; j < this.size - 1; j++) {
+		for (int i = 0; i < this.size; i++) {
+			for (int j = 0; j < this.size; j++) {
 				int check = 0;
-				if (this.cell[i + 1][j + 1].isStatus()) {
+				if (this.cell[mdivision(i + 1)][mdivision(j + 1)].isStatus()) {
 					check++;
 				}
-				if (this.cell[i - 1][j - 1].isStatus()) {
+				if (this.cell[mdivision(i - 1)][mdivision(j - 1)].isStatus()) {
 					check++;
 				}
-				if (this.cell[i][j + 1].isStatus()) {
+				if (this.cell[mdivision(i)][mdivision(j + 1)].isStatus()) {
 					check++;
 				}
-				if (this.cell[i][j - 1].isStatus()) {
+				if (this.cell[mdivision(i)][mdivision(j - 1)].isStatus()) {
 					check++;
 				}
-				if (this.cell[i + 1][j].isStatus()) {
+				if (this.cell[mdivision(i + 1)][mdivision(j)].isStatus()) {
 					check++;
 				}
-				if (this.cell[i - 1][j].isStatus()) {
+				if (this.cell[mdivision(i - 1)][mdivision(j)].isStatus()) {
 					check++;
 				}
-				if (this.cell[i + 1][j - 1].isStatus()) {
+				if (this.cell[mdivision(i + 1)][mdivision(j - 1)].isStatus()) {
 					check++;
 				}
-				if (this.cell[i - 1][j + 1].isStatus()) {
+				if (this.cell[mdivision(i - 1)][mdivision(j + 1)].isStatus()) {
 					check++;
 				}
 				if (this.cell[i][j].isStatus()) {
@@ -55,8 +59,6 @@ public class Board {
 				} else {
 					if (check == 3) {
 						board.cell[i][j].setStatus(true);
-					} else {
-						board.cell[i][j].setStatus(false);
 					}
 				}
 
