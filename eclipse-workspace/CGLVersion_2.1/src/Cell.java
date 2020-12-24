@@ -10,9 +10,9 @@ public class Cell {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	public String toString() {
-		return ""+this.status;
-		
-	}
+//	public String toString() {
+//		return ""+this.status;
+//		
+//	}
 	
 }
